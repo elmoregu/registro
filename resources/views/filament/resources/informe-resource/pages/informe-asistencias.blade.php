@@ -2,6 +2,11 @@
     <div class="container mx-auto mt-10">
         <h1 class="text-2xl font-bold mb-6">Informe de Asistencias por Cobrar</h1>
 
+        <a href="{{ route('exportar-informe-pdf') }}"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4 inline-block">
+            Exportar a PDF
+        </a>
+
         @if ($this->informes->isNotEmpty())
             <table class="table-auto w-full border-collapse border border-gray-300">
                 <thead>

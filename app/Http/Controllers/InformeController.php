@@ -34,7 +34,7 @@ class InformeController extends Controller
                 'asistencias.id as asistencia_id',
                 'usuarios.nombre as usuario',
                 'valor_asistencias.tipo as tipo_asistencia',
-                DB::raw('valor_asistencias.valor * ' . $uf . ' as monto_clp'),
+                DB::raw('valor_asistencias.valor * ' . $uf . ' as monto_clp'), //multiplicamos por uf para enviar valor en clp
                 'asistencias.fecha',
                 'asistencias.descripcion as asunto',
                 'empresas.razon_social as empresa'

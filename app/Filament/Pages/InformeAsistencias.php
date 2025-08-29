@@ -18,9 +18,9 @@ class InformeAsistencias extends Page
 
     protected static ?string $navigationGroup = 'Informes';
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
-    protected static ?string $navigationLabel = 'Informe de Asistencias';
+    protected static ?string $navigationLabel = 'Informe Asistencias';
     protected static ?string $slug = 'informes/asistencias';
-    protected static ?string $title = 'Informe de Asistencias por Cobrar';
+    //protected static ?string $title = 'Informe de Asistencias por Cobrar';
 
     public $informes;
 
@@ -36,8 +36,9 @@ class InformeAsistencias extends Page
                 'empresas.id as empresa_id',
                 'valor_asistencias.tipo as tipo_valor',
                 'empresas.razon_social as empresa',
+
                 DB::raw('COUNT(asistencias.id) as total_asistencias'),
-                DB::raw('SUM(valor_asistencias.valor) as total_valor')
+                DB::raw('SUM(valor_asistencias.valor) * ' . $uf . ' as total_valor')
             )
             ->groupBy('empresas.id', 'empresas.razon_social', 'valor_asistencias.tipo')
             ->get();

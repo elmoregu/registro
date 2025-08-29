@@ -17,3 +17,11 @@ Route::get('/exportar-informe-pdf', [InformeController::class, 'exportarPdf'])->
 Route::get('/exportar-informe-pdf', [InformeController::class, 'exportarPdf'])->name('exportar-informe-pdf');
 
 //Route::get('/filtrar-asistencias', FiltrarAsistencias::class)->name('filtrar-asistencias');<?php
+
+Route::post('/kanban/update', function (\Illuminate\Http\Request $request) {
+    $tarea = \App\Models\Tarea::findOrFail($request->id);
+    $tarea->estado = $request->estado;
+    $tarea->save();
+
+    return response()->json(['success' => true]);
+})->name('kanban.update');

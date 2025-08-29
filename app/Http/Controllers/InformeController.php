@@ -28,6 +28,7 @@ class InformeController extends Controller
             ->when($fechaInicio && $fechaFin, function ($query) use ($fechaInicio, $fechaFin) {
                 return $query->whereBetween('asistencias.fecha', [$fechaInicio, $fechaFin]);
             })
+            ->where('asistencias.status', 'Cobrar')
             ->select(
                 'empresas.id as empresa_id',
                 'asistencias.id as asistencia_id',

@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Informe de Asistencias por Cobrar</title>
+    <title>Informe</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
 <body class="bg-gray-100">
     <div class="container mx-auto mt-10">
-        <h1 class="text-2xl font-bold mb-6">Informe de Asistencias por Cobrar</h1>
+        <h1 class="text-2xl font-bold mb-6">Informe de Asistencias por Cobrarrr</h1>
 
         @if ($informes->isNotEmpty())
             <table class="table-auto w-full border-collapse border border-gray-300">

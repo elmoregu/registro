@@ -46,10 +46,13 @@ class UsuarioResource extends Resource
                 ->label('Cargo')
 
                 ->required()
-                ->maxLength(30),
+                ->maxLength(70),
             Forms\Components\TextInput::make('telefono')
                 ->label('Teléfono')
                 ->tel()
+                ->maxLength(20),
+            Forms\Components\TextInput::make('pais')
+                ->label('País')
                 ->maxLength(20),
             Forms\Components\Select::make('empresa_id')
                 ->label('Empresa')
@@ -123,6 +126,10 @@ class UsuarioResource extends Resource
                 Tables\Columns\TextColumn::make('empresa.razon_social')
                     ->label('Empresa')
                     ->sortable(),
+                Tables\Columns\TextColumn::make('pais')
+                    ->label('País')
+                    ->sortable()
+                    ->toggleable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Creado')
                     ->sortable()
@@ -133,6 +140,7 @@ class UsuarioResource extends Resource
                 SelectFilter::make('empresa_id')
                     ->label('Empresa')
                     ->options(Empresa::all()->pluck('razon_social', 'id')->toArray()),
+                
             ])
             ->defaultSort('created_at', 'desc')
             ->actions([

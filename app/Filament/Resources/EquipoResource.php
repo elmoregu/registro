@@ -149,7 +149,10 @@ class EquipoResource extends Resource
                     ->sortable(),
                     */
                 //Stack::make([
-
+                TextColumn::make('id')
+                    ->label('#')
+                    ->searchable()
+                    ->sortable(),
                 ImageColumn::make('usuario.url_img')
                     //->label('Nombre')
                     ->circular()
@@ -191,6 +194,9 @@ class EquipoResource extends Resource
 
                 TextColumn::make('anydesk')
                     ->label('Anydesk')
+                    ->copyable()
+                    ->copyMessage('Serie Copiado!')
+                    ->copyMessageDuration(1500)
                     ->sortable()
                     ->searchable(),
                 TextColumn::make('obs')

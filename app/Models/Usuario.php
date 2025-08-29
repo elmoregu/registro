@@ -14,7 +14,8 @@ class Usuario extends Model
         'email',
         'telefono',
         'url_img',
-        'empresa_id'
+        'empresa_id',
+        'pais'
     ];
 
     public function empresa(){

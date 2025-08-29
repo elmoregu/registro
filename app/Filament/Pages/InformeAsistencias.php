@@ -26,18 +26,20 @@ class InformeAsistencias extends Page
 
     public function mount()
     {
-        $uf = app(UfService::class)->getValorUf();
-        // Consulta para obtener las asistencias "Por Cobrar" agrupadas por empresa
+        $uf = app(\App\Services\UfService::class)->getValorUf();
+
         $this->informes = DB::table('asistencias')
             ->join('valor_asistencias', 'valor_asistencias.id', '=', 'asistencias.valor_asistencias_id')
             ->join('empresas', 'empresas.id', '=', 'valor_asistencias.empresa_id')
             ->where('asistencias.status', 'Cobrar')
             ->select(
+                'empresas.id as empresa_id',
+                'valor_asistencias.tipo as tipo_valor',
                 'empresas.razon_social as empresa',
                 DB::raw('COUNT(asistencias.id) as total_asistencias'),
-                DB::raw('SUM(valor_asistencias.valor) * ' . $uf . ' as total_valor')
+                DB::raw('SUM(valor_asistencias.valor) as total_valor')
             )
-            ->groupBy('empresas.razon_social')
+            ->groupBy('empresas.id', 'empresas.razon_social', 'valor_asistencias.tipo')
             ->get();
     }
 

@@ -63,6 +63,9 @@ class EmpresaResource extends Resource
                 Tables\Columns\TextColumn::make('rut')
                     ->label('Rut')
                     ->sortable()
+                    ->copyable()
+                    ->copyMessage('Rut Copiado!')
+                    ->copyMessageDuration(1500)
                     ->searchable(),
                 Tables\Columns\TextColumn::make('direccion')
                     ->label('Dirección')

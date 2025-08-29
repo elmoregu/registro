@@ -8,7 +8,9 @@ class InicioController extends Controller
 {
     public function index()
     {
-        return view('inicio');
+        $asistencias = collect();
+
+        return view('inicio', compact('asistencias'));
     }
 
     public function buscarAsistencia(Request $request)

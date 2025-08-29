@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,16 +10,20 @@
             width: 100%;
             border-collapse: collapse;
         }
-        th, td {
+
+        th,
+        td {
             border: 1px solid black;
             padding: 8px;
             text-align: left;
         }
+
         th {
             background-color: #f2f2f2;
         }
     </style>
 </head>
+
 <body>
     <h1>Informe de Asistencias por Cobrar</h1>
     <table>
@@ -36,10 +41,11 @@
                     <td>{{ $informe->empresa }}</td>
                     <td>{{ $informe->total_asistencias }}</td>
                     <td>{{ number_format($informe->total_valor, 2, ',', '.') }}</td>
-                    <td>{{ number_format($informe->total_en_pesos, 0, ',', '.') }}</td>
+                    <td>{{ number_format($informe->monto_clp, 0, ',', '.') }}</td>
                 </tr>
             @endforeach
         </tbody>
     </table>
 </body>
+
 </html>

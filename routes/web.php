@@ -14,5 +14,6 @@ Route::get('/informes/asistencias', [InformeController::class, 'asistenciasPorCo
 
 Route::get('/exportar-informe-pdf', [InformeController::class, 'exportarPdf'])->name('exportar-informe-pdf');
 
+Route::get('/exportar-informe-pdf', [InformeController::class, 'exportarPdf'])->name('exportar-informe-pdf');
 
 //Route::get('/filtrar-asistencias', FiltrarAsistencias::class)->name('filtrar-asistencias');<?php
